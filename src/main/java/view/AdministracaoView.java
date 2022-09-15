@@ -208,7 +208,7 @@ public class AdministracaoView extends javax.swing.JFrame {
                 AtendimentoModel atendimento = new AtendimentoModel();
                 atendimento.setNome(nome);
                 atendimento.setData(new Date());
-                atendimento.setStatus(0);
+                atendimento.setStatus(0); 
                 int senha = atController.save(atendimento);
                 
                 //Atualiza o label com a senha que foi cadastrada no banco

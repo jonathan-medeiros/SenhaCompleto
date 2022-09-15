@@ -5,31 +5,38 @@
 package model;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author jonathandamasiomedeiros
  */
+@Entity
+@Table(name = "atendimento")
 public class AtendimentoModel {
     
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
+    @Column(name = "nome")
     private String nome;
+    
+    @Column(name = "data")
     private Date data;
+    
+    @Column(name = "atendimento")
     private Date atendimento;
+    
+    @Column(name = "status")
     private int status; //0 = não atendido, 1 = senha em atendimento, 2 = já atendidos
 
-    public AtendimentoModel(int id, String nome, Date data, Date atendimento, int status) {
-        this.id = id;
-        this.nome = nome;
-        this.data = data;
-        this.atendimento = atendimento;
-        this.status = status;
-    }
-
-    public AtendimentoModel(){
-        
-    }
-    
     public int getId() {
         return id;
     }
@@ -70,9 +77,22 @@ public class AtendimentoModel {
         this.status = status;
     }
 
+    public AtendimentoModel() {
+    }
+
+    public AtendimentoModel(int id, String nome, Date data, Date atendimento, int status) {
+        this.id = id;
+        this.nome = nome;
+        this.data = data;
+        this.atendimento = atendimento;
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return id + " - " + nome;
+        return "AtendimentoModel{" + "id=" + id + ", nome=" + nome + ", data=" + data + ", atendimento=" + atendimento + ", status=" + status + '}';
     }
+
+   
     
 }
